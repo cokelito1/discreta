@@ -1,0 +1,55 @@
+\documentclass[a4paper,oneside,10.5pt]{USMArt}
+
+\usepackage{personal}
+\usepackage{comment}
+\usepackage[letterpaper, left=2cm, right=2cm]{geometry}
+
+\title{Tarea I - Matematica Discreta}
+\sigla{MAT-379 }
+\ramo{Matematica Discreta}
+\profesor{Roberto Villaflor}
+\semestre{2025-1}
+\author{Jorge Bravo}
+
+\begin{document}
+\maketitle
+
+\begin{sol}
+  Dada una coloracion $C$ sobre $G$, consideramos
+  \begin{equation*}
+    f(C) = |\{ e \in E(G) \; | \; \text{ Los extremos de } e \text{ tienen el mismo color }\}|
+  \end{equation*}
+
+  Tomemos una coloración que minimiza esta función. Supongamos que $C$ no cumple la propiedad para algún vértice
+  $v \in V(G)$, esto significa que m\'as de la mitad de los vértices adyacentes tienen el mismo color, cambiando
+  el color de $v$ tenemos que la cantidad de aristas que conectan vértices del mismo color disminuyo, pues teníamos
+  que m\'as de la mitad de los vecinos de $v$ tenían su color anterior. Por lo tanto una coloración que minimice
+  $f$ a de cumplir la propiedad que queremos.
+\end{sol}
+
+\begin{sol}
+  Considere $v$ un vértice con $d(v) = |N(v)|$. Luego hay una única arista por cada vecino, consideremos para cada
+  arista $e$ incidente en $v$ un camino maximal $P_{v}$. Estos caminos han de terminar en una hoja, pues de
+  otra forma lo podemos continuar, pues de otra forma se armaría un ciclo si llegaramos a un vértice que ya visitamos.
+  Estos caminos no se pueden intersectar, pues si se intersectaran entonces en el primer vértice que se intersectan
+  podríamos armar un ciclo con ambos caminos. Dado que tenemos $\Delta(G)$ caminos disjuntos que terminan en hojas,
+  a lo menos tenemos $|\Delta(G)|$ hojas.
+\end{sol}
+
+\begin{sol}
+  Notemos que resultado es trivial para $K_{3}$, pues $K_{3}$ es un triangulo por lo que 2 de las aristas tienen
+  que tener el mismo color y por tanto esas 2 forman un árbol generador del mismo color. Consideramos $K_{n + 1}$, para
+  $n > 3$, considerando el subgrafo conformado por $G - v_{n + 1}$, este es isomorfo a $K_{n}$ y cumple la propiedad
+  por lo tanto existe un árbol generador $T$ del mismo color, digamos $C$, para este subgrafo. Si existiese una arista
+  incidente en $v_{n + 1}$ de color $C$, entonces uniendo $v_{n + 1}$ al árbol mediante esa arista tendríamos el árbol
+  generador. Si no existiese ninguna arista incidente en $v_{n + 1}$ de color $C$, entonces todas las aristas incidentes
+  en $v_{n + 1}$ son del mismo color, esto pues dado $e, f$ aristas incidentes en $v_{n + 1}$ estas conectan
+  $v_{n + 1}$ con $v_{e}$ y $v_{f}$ respectivamente, dado que estas están conectadas por el árbol $T$, existe un camino
+  $v_{e}, v_{1}, \dots, v_{f}$, de color $C$, considerando los triángulos formados por vértices
+  adyacentes en el camino y $v_{n + 1}$, tenemos que los $2$ vértices incidentes en $v_{n + 1}$ tienen que tener mismo
+  color, pues ninguno puede tener color $C$. Repitiendo esto tenemos que todas las aristas que conectan $v_{n + 1}$
+  con vértices del camino tienen que tener el mismo color, en particular $e$ y $f$. Por lo tanto en ese caso
+  el árbol generador es el grafo generado por todos los vértices y las aristas incidente en $v_{n + 1}$.
+\end{sol}
+
+\end{document}
