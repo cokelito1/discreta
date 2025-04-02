@@ -28,12 +28,11 @@
 \end{sol}
 
 \begin{sol}
-  Considere $v$ un vértice con $d(v) = |N(v)|$. Luego hay una única arista por cada vecino, consideremos para cada
+  Considere $v$ un vértice con $d(v) = \Delta(T)$. Luego hay una única arista por cada vecino, consideremos para cada
   arista $e$ incidente en $v$ un camino maximal $P_{v}$. Estos caminos han de terminar en una hoja, pues de
-  otra forma lo podemos continuar, pues de otra forma se armaría un ciclo si llegaramos a un vértice que ya visitamos.
-  Estos caminos no se pueden intersectar, pues si se intersectaran entonces en el primer vértice que se intersectan
-  podríamos armar un ciclo con ambos caminos. Dado que tenemos $\Delta(G)$ caminos disjuntos que terminan en hojas,
-  a lo menos tenemos $|\Delta(G)|$ hojas.
+  otra forma lo podemos continuar. Estos caminos no se pueden intersectar, dado que si se intersectaran entonces en el primer vértice
+  que se intersectan podríamos armar un ciclo con ambos caminos. Dado que tenemos $\Delta(T)$ caminos disjuntos que terminan en hojas,
+  a lo menos tenemos $|\Delta(T)|$ hojas.
 \end{sol}
 
 \begin{sol}
