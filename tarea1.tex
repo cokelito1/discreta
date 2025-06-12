@@ -50,5 +50,44 @@
   con vértices del camino tienen que tener el mismo color, en particular $e$ y $f$. Por lo tanto en ese caso
   el árbol generador es el grafo generado por todos los vértices y las aristas incidente en $v_{n + 1}$.
 \end{sol}
+\begin{sol}
+  Consideremos $v_{0} \dots v_{k}$ un camino maximal y supongamos por contradiccion que no existe
+  $v_{i}$ en el camino de tal forma que $v_{i}$ sea vecino de $v_{0}$ y $v_{i - 1}$ vecino de $v_{k}$. Notemos que por la maximalidad del camino todos los vecinos de $v_{0}$ y $v_{k}$ han de estar en el camino. Luego tomemos los conjuntos
+  \begin{align*}
+    A &= \{v_{i} \; |\ ; v_{i} \in \mathcal{N}(v_{0})\} \subset \{v_{1}, \dots, v_{k}\}\\
+    B &= \{v_{i - 1} \; | \; v_{i} \in \mathcal{N}(v_{k})\} \subset \{v_{0}, \dots, v_{k - 1}\}
+  \end{align*}
+
+  Por hipotesis estos conjuntos son disjuntos, por lo tanto
+  \begin{equation*}
+    |A \cup B| = |A| + |B| \geq |V(G)| \implies A \cup B = V(G)
+  \end{equation*}
+
+  Por lo tanto obtenemos que $v_{0} \in B$, es decir $v_{1} \in \mathcal{N}(v_{k})$. Por lo tanto $v_{1}$ es vecino de $v_{k}$ lo cual es una contradiccion, pues entonces $v_{1} \in A \cap B$.
+
+  El ciclo que buscamos es
+  \begin{equation*}
+    v_{0}v_{1}\dots v_{i - 1} v_{k} v_{k -1} \dots v_{i} v_{0}
+  \end{equation*}
+
+  Si el camino no pasara por todos los vertices, entonces existe $v$ que no esta en el camino y es adyacente a $v_{j}$
+  en el camino. Si $v_{j} = v_{0}$ o $v_{j} = v_{k}$ entonces la contradiccion es directa. En caso que no, podemos obtener un camino a partir del ciclo que termine en $v_{j}$ y tendriamos la contradiccion. Por lo tanto es hamiltoniano.
+\end{sol}
+
+\newpage
+
+\begin{sol}.
+  \begin{equation*}
+    \ell(x) = \int_{0}^{\frac{1}{2}} x(t) dt - \int_{\frac{1}{2}}^{1} x(t) dt
+  \end{equation*}
+
+  \begin{equation*}
+    ||\ell||_{\star} \leq 1
+  \end{equation*}
+
+  \begin{equation*}
+    (x_{n})_{n \in \NN} \subset \mathscr{C}([0, 1]), \lim_{n \to \infty} \ell(x_{n}) = 1 \land ||x_{n}||_{\infty} = 1
+  \end{equation*}
+\end{sol}
 
 \end{document}
