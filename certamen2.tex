@@ -1,0 +1,90 @@
+\documentclass[a4paper,oneside,10.5pt]{USMArt}
+
+\usepackage{personal}
+\usepackage{comment}
+\usepackage[letterpaper, left=2cm, right=2cm]{geometry}
+
+\title{Certamen II - Variedades Diferenciables}
+\sigla{MAT-430 }
+\ramo{Variedades Diferenciables}
+\profesor{Pedro Montero}
+\semestre{2025-1}
+\author{Jorge Bravo}
+
+\DeclareMathOperator{\volg}{vol_g}
+\DeclareMathOperator{\dive}{div}
+\begin{document}
+\maketitle
+
+\newcommand{\TT}{\mathbf{T}}
+
+\begin{sol}\hfill
+  \begin{enumerate}
+  \item Notemos que
+  \begin{align*}
+    d(\iota_{X} \volg) &= d(\sqrt{\det(g_{ij})} \sum_{i = 1}^{n} (-1)^{i} X^{i} dx^{1} \wedge \dots \wedge \hat{dx^{i}} \wedge dx^{n})\\
+                       &= d(\sum_{i = 1}^{n} (-1)^{i} \sqrt{\det (g_{\ell j})} X^{i} dx^{1} \wedge \dots \wedge \hat{dx^{i}} \wedge dx^{n})\\
+     &= \sum_{i = 1}^{n} \frac{\partial}{\partial x^{i}} (\det(g_{\ell j}) X^{i}) dx^{1} \wedge \dots \wedge dx^{n}
+  \end{align*}
+
+  Por lo tanto
+  \begin{equation*}
+    \dive X = \frac{\sum_{i = 1}^{n} \frac{\partial}{\partial x^{i}} (\sqrt{\det (g_{\ell j})}X^{i})}{\sqrt{\det(g_{ij})}}
+  \end{equation*}
+
+  De lo anterior y la formula magica de Cartan tenemos que
+  \begin{equation*}
+   f \dive X \volg + \inner{\operatorname{grad_{g}}(f)}{X} \volg= f \mathscr{L}_{X}(\volg) + (\mathscr{L}_{f}X)(\volg) = \mathscr{L}_{fX}(\volg) = (d \circ \iota_{fX})(\volg) = \dive (fX) \volg
+  \end{equation*}
+
+  Por lo tanto
+  \begin{equation*}
+    f \dive X + \inner{\operatorname{grad_{g}}(f)}{X} = \dive(fX)
+  \end{equation*}
+
+    \item Notemos que
+          \begin{equation*}
+            \int_{M} \dive X \volg = \int_{M} d(\iota_{X} \volg) = \int_{\partial M} \iota_{X} \volg|_{\partial M}
+          \end{equation*}
+
+          Ahora consideremos en cada $p$ una base ortonormal $(e_{2}, \dots, e_{n})$ de $T_{p}\partial M$ tal que $\volg(p) = n \wedge e_{2}^{*} \wedge \dots \wedge e_{n}^{*}$. Calculemos la contracci\'on por $X$ para $v_{1}, \dots v_{n - 1} \in T_{p}\partial M$
+          \begin{align*}
+            (\hat{n} \wedge e_{2}^{*} \wedge \dots \wedge e_{n}^{*})(a\hat{n} + \sum_{i = 2}^{n} X^{i}e_{i}, v_{1}, \dots, v_{n -1}) &= a(e_{2}^{*} \wedge \dots e_{n}^{*})(v_{1}, \dots, v_{n -1}) + (\hat{n} \wedge e_{2}^{*} \wedge \dots \wedge e_{n}^{*})(\sum_{i = 2}^{n} X^{i}e_{i}, \dots, v_{n - 1})\\
+            &= a(e_{2}^{*} \wedge \dots e_{n}^{*})(v_{1}, \dots, v_{n - 1})
+          \end{align*}
+
+          Pues en el segundo termino nada tiene direccion normal por lo que al tomar $\hat{n}$ siempre dara 0 sin importar cual vector le demos.
+
+          Por lo tanto teneos que
+          \begin{equation*}
+            \iota_{X} \volg |_{\partial M} = \inner{X}{\hat{n}} \hat{\volg}
+          \end{equation*}
+
+          Con lo que obtenemos
+          \begin{equation*}
+            \int_{M} \dive X \volg = \int_{\partial M} \inner{X}{\hat{n}} \hat{\volg}
+          \end{equation*}
+
+    \item Usando (1), tenemos que
+          \begin{equation*}
+            \int_{M} \dive(fX) \volg  = \int_{M} f \dive X \volg + \int_{M} \inner{\operatorname{grad_{g}}(f)}{X} \volg
+          \end{equation*}
+
+          Por (2) tenemos que
+          \begin{equation*}
+            \int_{M} \dive(fX) \volg = \int_{\partial M} \inner{fX}{\hat{n}} \hat{\volg} = \int_{\partial M} f \inner{X}{\hat{n}} \hat{\volg}
+          \end{equation*}
+
+          Juntando los dos tenemos que
+          \begin{equation*}
+            \int_{\partial M} f \inner{X}{\hat{n}} \hat{\volg} = \int_{M} f \dive X \volg + \int_{M} \inner{\operatorname{grad_{g}}(f)}{X} \volg
+          \end{equation*}
+
+          Reordenando obtenemos que
+          \begin{equation*}
+            \int_{M} \inner{\operatorname{grad_{g}}(f)}{X} \volg = - \int_{M} f \dive X \volg + \int_{\partial M} f \inner{X}{\hat{n}} \hat{\volg}
+          \end{equation*}
+  \end{enumerate}
+\end{sol}
+
+\end{document}
